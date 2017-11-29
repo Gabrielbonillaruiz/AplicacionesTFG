@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D profile='Immersive'>
+<Scene>
+//Fantasma 1 
+<Transform translation='-11 0 -11'>
+    <Transform rotation='1 0 0 1.57'> 
+	<PlaneSensor DEF='MataFantasma1'/>
+		<Transform DEF='fantasma1' >
+			<Transform rotation='1 0 0 -1.57'>
+				<Transform scale = ' 15 15 15'> 
+					<Inline url='ghost1.x3d'/>
+				</Transform>
+			</Transform>
+		</Transform>
+    </Transform>
+</Transform>
+//Fantasma 2 
+<Transform translation='-10 0 10'>
+    <Transform rotation='1 0 0 1.57'>
+	<PlaneSensor DEF='MataFantasma2'/>
+		<Transform DEF='fantasma2' >
+			<Transform rotation='1 0 0 -1.57'>
+				<Transform scale = ' 50 50 50'>
+					<Inline url='ghost2.x3d'/>
+				</Transform>
+			</Transform>
+		</Transform>
+    </Transform>
+</Transform>
+//Fantasma 3 
+<Transform translation='11 1 -11'>
+    <Transform rotation='1 0 0 1.57'>
+	<PlaneSensor DEF='MataFantasma3'/>
+		<Transform DEF='fantasma3' >
+			<Transform rotation='1 0 0 -1.57'>
+				<Transform scale = ' 15 15 15'>
+					<Inline url='ghost3.x3d'/>
+				</Transform>
+			</Transform>
+		</Transform>
+    </Transform>
+</Transform>
+//Fantasma 4 
+<Transform translation='10 0 10'>
+    <Transform rotation='1 0 0 1.57'>
+	<PlaneSensor DEF='MataFantasma4'/>
+		<Transform DEF='fantasma4' >
+			<Transform rotation='1 0 0 -1.57'>
+				<Transform scale = ' 15 15 15'>
+					<Inline url='ghost4.x3d'/>
+				</Transform>
+			</Transform>
+		</Transform>
+    </Transform>
+</Transform>
+//Fantasma jefe final
+<Transform translation='0 0 10'>
+    <Transform rotation='1 0 0 1.57'>
+	<PlaneSensor DEF='MataFantasmafinal'/>
+		<Transform DEF='fantasmafinal' >
+			<Transform rotation='1 0 0 -1.57'>
+				<Transform scale = ' 10 10 10'>
+					<Inline url='ghostfinal.x3d'/>
+				</Transform>
+			</Transform>
+		</Transform>
+    </Transform>
+</Transform>
+//Mounstro
+<Transform translation='0 0.5 0'>
+    <Transform rotation='1 0 0 1.57'>
+		<PlaneSensor DEF='MataMonstruo'/>
+		<Transform DEF='mounstro' >
+			<Transform rotation='1 0 0 -1.57'>
+				<Transform scale = ' 30 30 30'>
+					<Inline url='monster.x3d'/>
+				</Transform>
+			</Transform>
+		</Transform>
+    </Transform>
+</Transform>
+//Mounstro
+<Transform translation='0 0 -10'>
+    <Transform rotation='1 0 0 1.57'>
+	<PlaneSensor DEF='MataMonstruo2'/>
+		<Transform DEF='mounstro2' >
+			<Transform rotation='1 0 0 -1.57'>
+				<Transform scale = ' 30 30 30'>
+					<Inline url='monster2.x3d'/>
+				</Transform>
+			</Transform>
+		</Transform>
+    </Transform>
+</Transform>
+
+//Palacio
+    <Transform>
+		<Transform scale = '100 100 100'> 
+			<Inline url='palacio.x3d'/>
+		</Transform>
+    </Transform>
+	 <ROUTE fromNode='MataFantasma1' fromField='translation_changed' toNode='fantasma1' toField='set_translation'/>
+	 <ROUTE fromNode='MataFantasma2' fromField='translation_changed' toNode='fantasma2' toField='set_translation'/>
+	 <ROUTE fromNode='MataFantasma3' fromField='translation_changed' toNode='fantasma3' toField='set_translation'/>
+	 <ROUTE fromNode='MataFantasma4' fromField='translation_changed' toNode='fantasma4' toField='set_translation'/>
+	 <ROUTE fromNode='MataFantasmafinal' fromField='translation_changed' toNode='fantasmafinal' toField='set_translation'/>
+	 <ROUTE fromNode='MataMonstruo' fromField='translation_changed' toNode='mounstro' toField='set_translation'/>
+	 <ROUTE fromNode='MataMonstruo2' fromField='translation_changed' toNode='mounstro2' toField='set_translation'/>
+</Scene>
+</X3D>

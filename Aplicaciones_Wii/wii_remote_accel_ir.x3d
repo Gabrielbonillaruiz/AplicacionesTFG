@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D>
+	<Engine DEF='engine'>
+		<RenderJob DEF='render'>
+			<WindowGroup>
+				<Window DEF='window' position='10 50' size='640,480' fullScreen='false'>
+					<Viewarea DEF='va' />
+				</Window>
+			</WindowGroup>
+		</RenderJob>
+	</Engine>
+	
+	<Scene DEF='scene'>
+
+		<NavigationInfo interactionType='projection' />
+		
+		<IOSensor DEF='Wiimote' type='Wii' device='0'>	
+			<field accessType='outputOnly' name='Orientation' type='SFVec3f'/>
+			<field accessType='outputOnly' name='Acceleration' type='SFVec3f'/>
+			<field accessType='outputOnly' name='IRSource' type='MFVec3f'/>
+		</IOSensor>
+		
+		<Viewpoint position='0 0 5' />
+    
+		<GradientBackground position='0 1' color='0 0.329 0.706 0 0.008 0.082'/>
+    
+		<Foreground DEF='fg' isDefault='false'>
+			<ScreenTextOverlay DEF='sto' text='' />
+		</Foreground>
+		
+		
+		<!-- points debug -->
+		<Transform translation='-0.512 0.384 0'>
+			<Shape>
+				<Appearance>
+					<Material emissiveColor='1 1 1' transparency='0.75'/>
+				</Appearance>
+				<Box size='1.024 0.768 0.25' lit='true' />
+			</Shape>
+		</Transform>
+		
+		<Transform scale='-0.001 0.001 0.001'>
+			<Replicator DEF='rp'>
+				<Shape>
+					<Appearance>
+						<Material emissiveColor='1 1 1'/>
+					</Appearance>
+					<Sphere radius='10' lit='false' />
+				</Shape>
+			</Replicator>
+		</Transform>
+		
+		<ROUTE fromNode='Wiimote' fromField='IRSource' toNode='rp' toField='coord'/>
+		
+		
+    
+		<Script DEF="script">
+			<field name='update' type='SFTime' accessType='inputOnly'/>
+			
+			<field name='Orientation' type='SFVec3f' accessType='inputOnly'/>
+			<field name='Acceleration' type='SFVec3f' accessType='inputOnly'/>
+			<field name='IRSource' type='MFVec3f' accessType='inputOnly'/>
+			
+			<![CDATA[
+				ecmascript:
+				
+				var sto = Browser.currentScene.getNamedNode('sto');
+				var orientation,accel,irsource;
+				
+				function update()
+				{
+					
+					sto.text[0] = 'Orientation';
+					sto.text[1] = orientation;
+					sto.text[2] = 'Acceleration';
+					sto.text[3] = accel;
+					sto.text[4] = 'Irsource';
+					sto.text[5] = irsource;
+				}
+				
+				function Orientation(val)
+				{orientation = val;}
+				
+				function Acceleration(val)
+				{accel = val;}
+				
+				function IRSource(val)
+				{irsource = val;}
+			]]>
+		</Script>
+
+		<TimeSensor DEF='ts' loop='true' cycleInterval='0.03' />
+		<ROUTE fromNode='ts' fromField='cycleTime' toNode='script' toField='update'/>
+		
+		<ROUTE fromNode='Wiimote' fromField='Orientation' toNode='script' toField='Orientation'/>
+		<ROUTE fromNode='Wiimote' fromField='Acceleration' toNode='script' toField='Acceleration'/>
+		<ROUTE fromNode='Wiimote' fromField='IRSource' toNode='script' toField='IRSource'/>
+	</Scene>
+</X3D>

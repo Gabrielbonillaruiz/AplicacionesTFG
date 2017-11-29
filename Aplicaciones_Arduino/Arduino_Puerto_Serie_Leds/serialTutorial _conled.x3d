@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D>
+  <Scene DEF='scene'>
+  
+    <IOSensor DEF='serial' type='serial' Device='6' Delimiter='10' BaudRate='9600'>
+    	<field accessType='outputOnly' name='Data out' type='SFString'/>
+    	<field accessType='inputOnly' name='Data in' type='SFString'/>
+    </IOSensor>
+    
+    <Viewpoint position='0.625 0.3 1.9' />
+	
+	<Transform translation='0 0.5 0'>
+    <Transform DEF='LedBlanco'>
+      <Shape>
+	    <Appearance>
+	      <Material DEF='ColorLedBlanco' diffuseColor='0 0 1'/>
+	    </Appearance>
+	    <Sphere DEF='Boton' bottom='true' radius='.05'/>
+	  </Shape>
+	  <Transform translation='0 0.3 -0.25'>
+	    <Billboard axisOfRotation='0 0 0'>
+	      <Shape>
+		    <Appearance>
+		      <Material DEF='Colortexto' diffuseColor='1 1 1'/>
+		    </Appearance>
+		  </Shape>
+		</Billboard>
+	  </Transform>
+    </Transform>
+	</Transform>
+	
+	<Transform translation='0 1.5 0'>
+    <Transform DEF='LedRojo'>
+      <Shape>
+	    <Appearance>
+	      <Material DEF='ColorLedRojoo' diffuseColor='0 0 1'/>
+	    </Appearance>
+	    <Sphere DEF='Boton' bottom='true' radius='.05'/>
+	  </Shape>
+	  <Transform translation='0 0.3 -0.25'>
+	    <Billboard axisOfRotation='0 0 0'>
+	      <Shape>
+		    <Appearance>
+		      <Material DEF='Colortexto' diffuseColor='1 1 1'/>
+		    </Appearance>
+		  </Shape>
+		</Billboard>
+	  </Transform>
+    </Transform>
+	</Transform>
+	
+	<Transform translation='0 1 0'>
+    <Transform DEF='LedVerde'>
+      <Shape>
+	    <Appearance>
+	      <Material DEF='ColorLedVerde' diffuseColor='0 0 1'/>
+	    </Appearance>
+	    <Sphere DEF='Boton' bottom='true' radius='.05'/>
+	  </Shape>
+	  <Transform translation='0 0.3 -0.25'>
+	    <Billboard axisOfRotation='0 0 0'>
+	      <Shape>
+		    <Appearance>
+		      <Material DEF='Colortexto' diffuseColor='1 1 1'/>
+		    </Appearance>
+		  </Shape>
+		</Billboard>
+	  </Transform>
+    </Transform>
+	</Transform>
+    
+    <Transform>
+    	<Shape>
+    		<Appearance>
+    			<Material diffuseColor='1 1 1' />
+    		</Appearance>
+    		<Text DEF='text' string='/../' solid='true'>
+    			 <FontStyle family='"SANS"' justify='"BEGIN"' size='0.1'/>
+    		</Text>
+    	</Shape>
+    </Transform>
+	
+	<Script DEF="script">
+		<field name='update' type='SFString' accessType='inputOnly'/>
+		<field accessType='outputOnly' name='LuzLedBlanco' type='SFColor'/>
+		<field accessType='outputOnly' name='LuzLedRojo' type='SFColor'/>
+		<field accessType='outputOnly' name='LuzLedVerde' type='SFColor'/>
+		
+		<![CDATA[
+			ecmascript:
+			var val="";
+			function update(val)
+			{
+				  if(val == "Led blanco encendido"){
+					LuzLedBlanco = new SFColor(1,1,1);
+				  }
+				  if(val == "Led blanco apagado"){
+					LuzLedBlanco = new SFColor(0,0,1);
+				  }
+				  if(val == "Led rojo encendido"){
+					LuzLedRojo = new SFColor(1,0,0);
+				  }
+				  if(val == "Led rojo apagado"){
+					LuzLedRojo = new SFColor(0,0,1);
+				  }
+				  if(val == "Led verde encendido"){
+					LuzLedVerde = new SFColor(0,1,0);
+				  }
+				  if(val == "Led verde apagado"){
+					LuzLedVerde = new SFColor(0,0,1);
+				  }
+			}
+			
+		]]>
+	</Script>
+
+    <ROUTE fromNode='serial' fromField='Data out' toNode='text' toField='string'/>
+	<ROUTE fromNode='serial' fromField='Data in' toNode='script' toField='update'/>
+    <ROUTE fromNode='script' fromField='LuzLedBlanco' toNode='ColorLedBlanco' toField='diffuseColor'/>
+	<ROUTE fromNode='script' fromField='LuzLedRojo' toNode='ColorLedRojo' toField='diffuseColor'/>
+	<ROUTE fromNode='script' fromField='LuzLedVerde' toNode='ColorLedVerde' toField='diffuseColor'/>
+    <KeySensor DEF='keysensor' />
+    <ROUTE fromNode='keysensor' fromField='keyPress' toNode='serial' toField='Data in'/>
+
+  </Scene>
+</X3D>

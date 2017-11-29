@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?> <X3D profile='Immersive'>
+	<Scene>
+		<!--Foco de luz-->
+		<PointLight color='0.8 0.8 0.0' location='0 0 0'/>
+		<!--Punto de vista-->
+		<Viewpoint description='vista panoramica' orientation='1 0 0 -0.35' position='0 10 20'/>
+		<!--texto-->
+		<Shape>
+			<Text string=  "Ghostpalace!"  >
+				<FontStyle justify= ' "MIDDLE" ' style= "ITALIC" size= '0.01'/>
+			</Text>
+		</Shape>
+		<!--x3d del fantastasma con el signo prohibido-->
+		<Transform translation='0 0 0'>
+			//Rotamos el eje y , 270grados 
+			//para que se vea la imagen correctamente 
+			//radiales=(grados/180*3,1415)
+			//rotation = ' ejeX ejeY ejeZ ángulo (radianes) '
+			<Transform rotation=' 0 1 0 4.71'>
+				<Inline url='ImagenInicio.x3d'/>
+			</Transform>
+		</Transform>
+	</Scene>
+</X3D>
+ 

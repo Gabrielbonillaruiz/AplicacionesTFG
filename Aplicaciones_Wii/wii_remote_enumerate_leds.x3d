@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D>
+	<Scene DEF='scene'>
+		<IOSensor DEF='Wiimote' type='Wii' device='0'>
+			<field accessType='inputOnly' name='SetLEDs' type='SFInt32'/>
+		</IOSensor>
+    
+		<Foreground DEF='fg' isDefault='false'>
+			<ScreenTextOverlay DEF='sto' text='' />
+		</Foreground>
+		
+		<Script DEF="script">
+			<field name='updateLED' type='SFTime' accessType='inputOnly'/>
+			<field name='outLED' type='SFInt32' accessType='outputOnly'/>
+			
+			<![CDATA[
+				ecmascript:				
+				var sto = Browser.currentScene.getNamedNode('sto');
+				var i = 0;
+				
+				function updateLED()
+				{
+					sto.text[0] = 'i: ' + i;
+					outLED = i;
+					
+					i++;
+					if(i >= 16)
+						i = 0;						
+				}				
+			]]>
+		</Script>
+	
+		<TimeSensor DEF='ts' loop='true' cycleInterval='1.0' />
+		<ROUTE fromNode='ts' fromField='cycleTime' toNode='script' toField='updateLED'/>
+		
+		<ROUTE fromNode='script' fromField='outLED' toNode='Wiimote' toField='SetLEDs'/>
+
+	</Scene>
+</X3D>

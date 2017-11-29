@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D>
+  <Scene DEF='scene'>
+  
+    <IOSensor DEF='serial' type='serial' Device='6' Delimiter='10' BaudRate='9600'>
+    	<field accessType='outputOnly' name='Data out' type='SFString'/>
+    	<field accessType='inputOnly' name='Data in' type='SFString'/>
+    </IOSensor>
+    
+    <Viewpoint position='0.625 0.3 1.9' />
+    
+    <Transform>
+    	<Shape>
+    		<Appearance>
+    			<Material diffuseColor='1 1 1' />
+    		</Appearance>
+    		<Text DEF='text' string='/../' solid='true'>
+    			<FontStyle justify='BEGIN' family='SANS' />
+    		</Text>
+    	</Shape>
+    </Transform>
+    
+    <ROUTE fromNode='serial' fromField='Data out' toNode='text' toField='string'/>
+    
+    <KeySensor DEF='keysensor' />
+    <ROUTE fromNode='keysensor' fromField='keyPress' toNode='serial' toField='Data in'/>
+
+  </Scene>
+</X3D>

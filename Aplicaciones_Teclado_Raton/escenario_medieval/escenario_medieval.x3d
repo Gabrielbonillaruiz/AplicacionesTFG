@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D profile='Immersive'>
+<Scene>
+//casco medieval
+
+<Transform translation='-11 0 -11'>
+	<Transform rotation='1 0 0 1.57'> 
+	<PlaneSensor DEF='def_cascomedieval'/>
+		<Transform DEF='cascomedieval' >
+			<Transform rotation='1 0 0 -1.57'>
+				<Transform scale = ' 10 10 10'>
+						<Inline url='medieval_helmet.x3d'/>
+				</Transform>
+			</Transform>
+		</Transform>
+	</Transform>
+</Transform>
+//hacha
+<Transform translation='0 0 0'>
+    <Transform rotation='1 0 0 1.57'>
+	<PlaneSensor DEF='def_hacha'/>
+		<Transform DEF='hacha' >
+			<Transform rotation='1 0 0 -1.57'>
+				<Transform scale = ' 10 10 10'> 
+					<Inline url='axe.x3d'/>
+				</Transform>
+			</Transform>
+		</Transform>
+    </Transform>
+</Transform>
+//Espada
+<Transform translation='20 0 -40'>
+    <Transform rotation='1 0 0 1.57'>
+	<PlaneSensor DEF='def_espada'/>
+		<Transform DEF='espada' >
+			<Transform rotation='1 0 0 -1.57'>
+				<Transform scale = ' 50 50 50'> 
+					<Inline url='sword.x3d'/>
+				</Transform>
+			</Transform>
+		</Transform>
+    </Transform>
+</Transform>
+//casco medieval
+//Ballesta
+<Transform translation='-20 0 -11'>
+	<Transform rotation='1 0 0 1.57'> 
+	<PlaneSensor DEF='def_ballesta'/>
+		<Transform DEF='ballesta' >
+			<Transform rotation='1 0 0 -1.57'>
+				<Transform scale = ' 10 10 10'>
+						<Inline url='crossbow.x3d'/>
+				</Transform>
+			</Transform>
+		</Transform>
+	</Transform>
+</Transform>
+//villa
+    <Transform >
+		<Transform scale = ' 100 100 100'> 
+			<Inline url='medieval_village.x3d'/>
+		</Transform>
+    </Transform>
+	<ROUTE fromNode='def_cascomedieval' fromField='translation_changed' toNode='cascomedieval' toField='set_translation'/>
+	<ROUTE fromNode='def_hacha' fromField='translation_changed' toNode='hacha' toField='set_translation'/>
+	<ROUTE fromNode='def_espada' fromField='translation_changed' toNode='espada' toField='set_translation'/>
+	<ROUTE fromNode='def_ballesta' fromField='translation_changed' toNode='ballesta' toField='set_translation'/>
+</Scene>
+</X3D>

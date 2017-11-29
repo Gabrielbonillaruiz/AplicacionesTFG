@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+ <head>
+    <meta content='CoasterClassical_oculus.x3d' name='title'/>
+    <meta content='Avión de papel visualizado desde distintas posiciones a través de las Oculus Rift' name='description'/>
+    <meta content='Gabriel Bonilla Ruiz' name='creator'/>
+    <meta content='5 Julio 2017' name='created'/>
+  </head>
+<Engine>
+  <RenderJob DEF='render'>
+    <WindowGroup>
+      <Window sample='4' size='1280 800'>
+      <Viewarea upperRight='0.5 1'>
+        <ShearedStereoViewModifier       DEF='leftSVM' leftEye='FALSE' eyeSeparation='0.04' zeroParallaxDistance='0.05'/>
+        <ImprovedDistortionDisplayFilter DEF='leftDIS' leftEye='TRUE'/>
+      </Viewarea>
+      <Viewarea lowerLeft='0.5 0'>
+        <ShearedStereoViewModifier       DEF='rightSVM' leftEye='TRUE' eyeSeparation='0.04' zeroParallaxDistance='0.05'/>
+        <ImprovedDistortionDisplayFilter DEF='rightDIS' leftEye='FALSE'/>
+     </Viewarea>
+     </Window>
+   </WindowGroup>
+  </RenderJob>
+</Engine>
+
+<Scene>
+  <Inline url='coasterClassical.x3d'/>
+  <IOSensor DEF='ovr' type='OculusRift'>
+    <field accessType='outputOnly' name='Orientation' type='SFRotation'/>
+    <field accessType='outputOnly' name='FieldOfView' type='SFFloat'/>
+    <field accessType='outputOnly' name='DistortionK' type='SFVec4f' />
+    <field accessType='outputOnly' name='LensSeparationDistance' type='SFFloat' />
+    <field accessType='outputOnly' name='InterpupillaryDistance' type='SFFloat' />
+    <field accessType='outputOnly' name='HScreenSize' type='SFFloat' />
+    <field accessType='outputOnly' name='VScreenSize' type='SFFloat' />
+    <field accessType='outputOnly' name='HResolution' type='SFInt32' />
+    <field accessType='outputOnly' name='VResolution' type='SFInt32' />
+  </IOSensor>
+
+  <Viewpoint DEF='v' position='4.17102 1.00905 -6.97228' orientation='0 1 0 2.99229' fieldOfView='1.74' />
+  
+  <Inline url="coasterClassical.x3d" />
+
+  <ROUTE fromNode='ovr' fromField='Orientation' 				toNode='v'				  toField='orientation'/>
+  <ROUTE fromNode='ovr' fromField='FieldOfView' 				toNode='v'				  toField='fieldOfView'/>
+  <ROUTE fromNode='ovr' fromField='HResolution' 				toNode='engine::leftDIS'  toField='width'/>
+  <ROUTE fromNode='ovr' fromField='VResolution' 				toNode='engine::rightDIS' toField='height'/>
+  <ROUTE fromNode='ovr' fromField='HScreenSize' 				toNode='engine::leftDIS'  toField='hScreenSize'/>
+  <ROUTE fromNode='ovr' fromField='VScreenSize' 				toNode='engine::rightDIS' toField='vScreenSize'/>
+  <ROUTE fromNode='ovr' fromField='DistortionK' 				toNode='engine::leftDIS'  toField='distortionK'/>
+  <ROUTE fromNode='ovr' fromField='DistortionK' 				toNode='engine::rightDIS' toField='distortionK'/>
+  <ROUTE fromNode='ovr' fromField='LensSeparationDistance' 	toNode='engine::leftDIS'  toField='lensSeparationDistance'/>
+  <ROUTE fromNode='ovr' fromField='LensSeparationDistance' 	toNode='engine::rightDIS' toField='lensSeparationDistance'/>
+
+
+</Scene>
+
+</X3D>

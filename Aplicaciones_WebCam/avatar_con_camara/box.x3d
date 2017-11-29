@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D>
+  <Scene DEF='scene'>
+    <Shape>
+      <Appearance>
+			<PixelTexture2D DEF='tex'/>
+      </Appearance>
+      <Box/>
+    </Shape>
+  </Scene>
+</X3D>

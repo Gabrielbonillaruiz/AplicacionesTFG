@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D>
+<Scene DEF='scene'>
+	<IOSensor DEF='Wiimote' type='Wii' device='0'>
+		<field accessType='outputOnly' name='A' type='SFBool'/>
+		<field accessType='outputOnly' name='B' type='SFBool'/>
+		<field accessType='outputOnly' name='Up' type='SFBool'/>
+		<field accessType='outputOnly' name='Down' type='SFBool'/>
+		<field accessType='outputOnly' name='Left' type='SFBool'/>
+		<field accessType='outputOnly' name='Right' type='SFBool'/>
+		<field accessType='outputOnly' name='Minus' type='SFBool'/>
+		<field accessType='outputOnly' name='Plus' type='SFBool'/>
+		<field accessType='outputOnly' name='One' type='SFBool'/>
+		<field accessType='outputOnly' name='Two' type='SFBool'/>
+		<field accessType='outputOnly' name='Home' type='SFBool'/>
+			
+		<field accessType='inputOnly' name='ActivateRumble' type='SFBool'/>
+	</IOSensor>
+	
+	<Foreground DEF='fg' isDefault='false'>
+			<ScreenTextOverlay DEF='sto' text='' />
+	</Foreground>
+	
+	<Script DEF="script">
+		<field name='update' type='SFTime' accessType='inputOnly'/>
+			
+		<field name='A' type='SFBool' accessType='inputOnly'/>
+		<field name='B' type='SFBool' accessType='inputOnly'/>
+		<field name='Up' type='SFBool' accessType='inputOnly'/>
+		<field name='Down' type='SFBool' accessType='inputOnly'/>
+		<field name='Left' type='SFBool' accessType='inputOnly'/>
+		<field name='Right' type='SFBool' accessType='inputOnly'/>
+		<field name='Minus' type='SFBool' accessType='inputOnly'/>
+		<field name='Plus' type='SFBool' accessType='inputOnly'/>
+		<field name='One' type='SFBool' accessType='inputOnly'/>
+		<field name='Two' type='SFBool' accessType='inputOnly'/>
+		<field name='Home' type='SFBool' accessType='inputOnly'/>
+		
+		<![CDATA[
+			ecmascript:
+			
+			var sto = Browser.currentScene.getNamedNode('sto');
+			var a, b, up, down, left, right, minus, plus, one, two, home;
+				
+			function update()
+			{
+				sto.text[0]  = 'A(Rumble): ' + a;
+				sto.text[1]  = 'B:         ' + b;
+				sto.text[2]  = 'Up:        ' + up;
+				sto.text[3]  = 'Down:      ' + down;
+				sto.text[4]  = 'Left:      ' + left;
+				sto.text[5]  = 'Right:     ' + right;
+				sto.text[6]  = 'Minus:     ' + minus;
+				sto.text[7]  = 'Plus:      ' + plus;
+				sto.text[8]  = 'One:       ' + one;
+				sto.text[9]  = 'Two:       ' + two;
+				sto.text[10] = 'Home:      ' + home;	
+			}
+				
+			function A(val)
+			{a = val;}
+			
+			function B(val)
+			{b = val;}
+			
+			function Up(val)
+			{up = val;}
+			
+			function Down(val)
+			{down = val;}
+			
+			function Left(val)
+			{left = val;}
+			
+			function Right(val)
+			{right = val;}
+			
+			function Minus(val)
+			{minus = val;}
+			
+			function Plus(val)
+			{plus = val;}
+			
+			function One(val)
+			{one = val;}
+			
+			function Two(val)
+			{two = val;}
+			
+			function Home(val)
+			{home = val;}
+		]]>
+	</Script>
+	
+	<TimeSensor DEF='ts' loop='true' cycleInterval='0.03' />
+	<ROUTE fromNode='ts' fromField='cycleTime' toNode='script' toField='update'/>
+	
+	<ROUTE fromNode='Wiimote' fromField='A' toNode='Wiimote' toField='ActivateRumble'/>
+	
+	<ROUTE fromNode='Wiimote' fromField='A' toNode='script' toField='A'/>
+	<ROUTE fromNode='Wiimote' fromField='B' toNode='script' toField='B'/>
+	<ROUTE fromNode='Wiimote' fromField='Up' toNode='script' toField='Up'/>
+	<ROUTE fromNode='Wiimote' fromField='Down' toNode='script' toField='Down'/>
+	<ROUTE fromNode='Wiimote' fromField='Left' toNode='script' toField='Left'/>
+	<ROUTE fromNode='Wiimote' fromField='Right' toNode='script' toField='Right'/>
+	<ROUTE fromNode='Wiimote' fromField='Minus' toNode='script' toField='Minus'/>
+	<ROUTE fromNode='Wiimote' fromField='Plus' toNode='script' toField='Plus'/>
+	<ROUTE fromNode='Wiimote' fromField='One' toNode='script' toField='One'/>
+	<ROUTE fromNode='Wiimote' fromField='Two' toNode='script' toField='Two'/>
+	<ROUTE fromNode='Wiimote' fromField='Home' toNode='script' toField='Home'/>	
+	</Scene>
+</X3D>

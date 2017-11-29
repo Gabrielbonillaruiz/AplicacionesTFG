@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D>
+<Scene DEF='scene'>
+	<IOSensor DEF='Wiimote' type='Wii' device='0'>
+		<field accessType='outputOnly' name='A' type='SFBool'/>
+		<field accessType='outputOnly' name='B' type='SFBool'/>
+		<field accessType='outputOnly' name='Up' type='SFBool'/>
+		<field accessType='outputOnly' name='Down' type='SFBool'/>
+		<field accessType='outputOnly' name='Left' type='SFBool'/>
+		<field accessType='outputOnly' name='Right' type='SFBool'/>
+		<field accessType='outputOnly' name='Minus' type='SFBool'/>
+		<field accessType='outputOnly' name='Plus' type='SFBool'/>
+		<field accessType='outputOnly' name='One' type='SFBool'/>
+		<field accessType='outputOnly' name='Two' type='SFBool'/>
+		<field accessType='outputOnly' name='Home' type='SFBool'/>
+			
+		<field accessType='inputOnly' name='ActivateRumble' type='SFBool'/>
+	</IOSensor>
+	
+	<Foreground DEF='fg' isDefault='false'>
+			<ScreenTextOverlay DEF='sto' text='' />
+	</Foreground>
+	
+	  <Transform translation='3 -1 -1'>
+    <Transform DEF='botonA'>
+      <Shape>
+	    <Appearance>
+	      <Material DEF='ColorBotonA' diffuseColor='1 1 1'/>
+	    </Appearance>
+	    <Cylinder DEF='Boton' bottom='true' height='.25' radius='.25'/>
+	  </Shape>
+	  <Transform translation='0 0.3 -0.25'>
+	    <Billboard axisOfRotation='0 0 0'>
+	      <Shape>
+		    <Appearance>
+		      <Material DEF='Colortexto' diffuseColor='1 1 1'/>
+		    </Appearance>
+		    <Text string='A'>
+		      <FontStyle DEF='texto' style='BOLD' size='0.5' justify='MIDDLE'/>
+		    </Text>
+		  </Shape>
+		</Billboard>
+	  </Transform>
+    </Transform>
+	</Transform>
+	
+	 <Transform translation='3 -1 1'>
+    <Transform DEF='botonB'>
+	  <Shape>
+	    <Appearance>
+		  <Material DEF='ColorBotonB' diffuseColor='1 1 1'/>
+		</Appearance>
+		<Cylinder USE='Boton'/>
+	  </Shape>
+	  <Transform translation='0 0.3 0.25'>
+	    <Billboard axisOfRotation='0 0 0'>
+	      <Shape>
+		    <Appearance>
+		      <Material USE='Colortexto'/>
+		    </Appearance>
+		    <Text string='B'>
+		      <FontStyle USE='texto'/>
+		    </Text>
+		  </Shape>
+		</Billboard>
+	  </Transform>
+	</Transform>
+  </Transform>
+	
+	 <Transform translation='2 -1 0.5'>
+    <Transform DEF='botonMinus'>
+	  <Shape>
+	    <Appearance>
+		  <Material DEF='ColorBotonMinus' diffuseColor='1 1 1'/>
+		</Appearance>
+		<Cylinder USE='Boton'/>
+	  </Shape>
+	  <Transform translation='0 0.3 -0.25'>
+	    <Billboard axisOfRotation='0 0 0'>
+	      <Shape>
+		    <Appearance>
+		      <Material USE='Colortexto'/>
+		    </Appearance>
+		    <Text string='-'>
+		      <FontStyle USE='texto'/>
+		    </Text>
+		  </Shape>
+		</Billboard>
+	  </Transform>
+	</Transform>
+  </Transform>
+	
+	 <Transform translation='4 -1 0.5'>
+    <Transform DEF='botonPlus'>
+	  <Shape>
+	    <Appearance>
+		  <Material DEF='ColorBotonPlus' diffuseColor='1 1 1'/>
+		</Appearance>
+		<Cylinder USE='Boton'/>
+	  </Shape>
+	  <Transform translation='0 0.3 -0.25'>
+	    <Billboard axisOfRotation='0 0 0'>
+	      <Shape>
+		    <Appearance>
+		      <Material USE='Colortexto'/>
+		    </Appearance>
+		    <Text string='+'>
+		      <FontStyle USE='texto'/>
+		    </Text>
+		  </Shape>
+		</Billboard>
+	  </Transform>
+	</Transform>
+  </Transform>
+	
+	 <Transform translation='3 -1 3'>
+    <Transform DEF='boton1'>
+	  <Shape>
+	    <Appearance>
+		  <Material DEF='ColorBoton1' diffuseColor='1 1 1'/>
+		</Appearance>
+		<Cylinder USE='Boton'/>
+	  </Shape>
+	  <Transform translation='0 0.3 -0.25'>
+	    <Billboard axisOfRotation='0 0 0'>
+	      <Shape>
+		    <Appearance>
+		      <Material USE='Colortexto'/>
+		    </Appearance>
+		    <Text string='1'>
+		      <FontStyle USE='texto'/>
+		    </Text>
+		  </Shape>
+		</Billboard>
+	  </Transform>
+	</Transform>
+  </Transform>
+	
+		 <Transform translation='3 -1 4'>
+    <Transform DEF='boton2'>
+	  <Shape>
+	    <Appearance>
+		  <Material DEF='ColorBoton2' diffuseColor='1 1 1'/>
+		</Appearance>
+		<Cylinder USE='Boton'/>
+	  </Shape>
+	  <Transform translation='0 0.3 -0.25'>
+	    <Billboard axisOfRotation='0 0 0'>
+	      <Shape>
+		    <Appearance>
+		      <Material USE='Colortexto'/>
+		    </Appearance>
+		    <Text string='2'>
+		      <FontStyle USE='texto'/>
+		    </Text>
+		  </Shape>
+		</Billboard>
+	  </Transform>
+	</Transform>
+  </Transform>
+	
+	 <Transform translation='3 -1 0.5'>
+    <Transform DEF='botonHome'>
+	  <Shape>
+	    <Appearance>
+		  <Material DEF='ColorBotonHome' diffuseColor='1 1 1'/>
+		</Appearance>
+		<Cylinder USE='Boton'/>
+	  </Shape>
+	  <Transform translation='0 0.3 -0.25'>
+	    <Billboard axisOfRotation='0 0 0'>
+	      <Shape>
+		    <Appearance>
+		      <Material USE='Colortexto'/>
+		    </Appearance>
+		    <Text string='Home'>
+		      <FontStyle USE='texto'/>
+		    </Text>
+		  </Shape>
+		</Billboard>
+	  </Transform>
+	</Transform>
+  </Transform>
+	
+		 <Transform translation='3 -1 -3'>
+    <Transform DEF='botonUp'>
+	  <Shape>
+	    <Appearance>
+		  <Material DEF='ColorBotonUp' diffuseColor='1 1 1'/>
+		</Appearance>
+		<Cylinder USE='Boton'/>
+	  </Shape>
+	  <Transform translation='0 0.3 -0.25'>
+	    <Billboard axisOfRotation='0 0 0'>
+	      <Shape>
+		    <Appearance>
+		      <Material USE='Colortexto'/>
+		    </Appearance>
+		    <Text string='up'>
+		      <FontStyle USE='texto'/>
+		    </Text>
+		  </Shape>
+		</Billboard>
+	  </Transform>
+	</Transform>
+  </Transform>
+	
+		 <Transform translation='2.5 -1 -2.5'>
+    <Transform DEF='botonLeft'>
+	  <Shape>
+	    <Appearance>
+		  <Material DEF='ColorBotonLeft' diffuseColor='1 1 1'/>
+		</Appearance>
+		<Cylinder USE='Boton'/>
+	  </Shape>
+	  <Transform translation='0 0.3 -0.25'>
+	    <Billboard axisOfRotation='0 0 0'>
+	      <Shape>
+		    <Appearance>
+		      <Material USE='Colortexto'/>
+		    </Appearance>
+		    <Text string='Left'>
+		      <FontStyle USE='texto'/>
+		    </Text>
+		  </Shape>
+		</Billboard>
+	  </Transform>
+	</Transform>
+  </Transform>
+	
+	<Transform translation='3.5 -1 -2.5'>
+    <Transform DEF='botonRight'>
+	  <Shape>
+	    <Appearance>
+		  <Material DEF='ColorBotonRight' diffuseColor='1 1 1'/>
+		</Appearance>
+		<Cylinder USE='Boton'/>
+	  </Shape>
+	  <Transform translation='0 0.3 -0.25'>
+	    <Billboard axisOfRotation='0 0 0'>
+	      <Shape>
+		    <Appearance>
+		      <Material USE='Colortexto'/>
+		    </Appearance>
+		    <Text string='Right'>
+		      <FontStyle USE='texto'/>
+		    </Text>
+		  </Shape>
+		</Billboard>
+	  </Transform>
+	</Transform>
+  </Transform>
+	
+		<Transform translation='3 -1 -2'>
+    <Transform DEF='botonDown'>
+	  <Shape>
+	    <Appearance>
+		  <Material DEF='ColorBotonDown' diffuseColor='1 1 1'/>
+		</Appearance>
+		<Cylinder USE='Boton'/>
+	  </Shape>
+	  <Transform translation='0 0.3 -0.25'>
+	    <Billboard axisOfRotation='0 0 0'>
+	      <Shape>
+		    <Appearance>
+		      <Material USE='Colortexto'/>
+		    </Appearance>
+		    <Text string='Down'>
+		      <FontStyle USE='texto'/>
+		    </Text>
+		  </Shape>
+		</Billboard>
+	  </Transform>
+	</Transform>
+  </Transform>
+	
+	
+	<Transform translation='3 -1.25 1'>
+<Shape>
+<Appearance> <Material/> </Appearance>
+<Box size= ' 3.5 0.5 10 ' />
+</Shape>
+</Transform>
+
+	
+	<Script DEF="script">
+		<field name='update' type='SFTime' accessType='inputOnly'/>
+			
+		<field name='A' type='SFBool' accessType='inputOnly'/>
+		<field name='B' type='SFBool' accessType='inputOnly'/>
+		<field name='Up' type='SFBool' accessType='inputOnly'/>
+		<field name='Down' type='SFBool' accessType='inputOnly'/>
+		<field name='Left' type='SFBool' accessType='inputOnly'/>
+		<field name='Right' type='SFBool' accessType='inputOnly'/>
+		<field name='Minus' type='SFBool' accessType='inputOnly'/>
+		<field name='Plus' type='SFBool' accessType='inputOnly'/>
+		<field name='One' type='SFBool' accessType='inputOnly'/>
+		<field name='Two' type='SFBool' accessType='inputOnly'/>
+		<field name='Home' type='SFBool' accessType='inputOnly'/>
+		<field accessType='outputOnly' name='LuzBotonA' type='SFColor'/>
+		<field accessType='outputOnly' name='LuzBotonB' type='SFColor'/>
+		<field accessType='outputOnly' name='LuzBotonMinus' type='SFColor'/>
+		<field accessType='outputOnly' name='LuzBotonPlus' type='SFColor'/>
+		<field accessType='outputOnly' name='LuzBoton1' type='SFColor'/>
+		<field accessType='outputOnly' name='LuzBoton2' type='SFColor'/>
+		<field accessType='outputOnly' name='LuzBotonHome' type='SFColor'/>
+		<field accessType='outputOnly' name='LuzBotonUp' type='SFColor'/>
+		<field accessType='outputOnly' name='LuzBotonDown' type='SFColor'/>
+		<field accessType='outputOnly' name='LuzBotonRight' type='SFColor'/>
+		<field accessType='outputOnly' name='LuzBotonLeft' type='SFColor'/>
+		
+		<![CDATA[
+			ecmascript:
+			
+			var sto = Browser.currentScene.getNamedNode('sto');
+			var a, b, up, down, left, right, minus, plus, one, two, home;
+				
+			function update()
+			{
+				sto.text[0]  = 'A(Rumble): ' + a;
+				sto.text[1]  = 'B:         ' + b;
+				sto.text[2]  = 'Up:        ' + up;
+				sto.text[3]  = 'Down:      ' + down;
+				sto.text[4]  = 'Left:      ' + left;
+				sto.text[5]  = 'Right:     ' + right;
+				sto.text[6]  = 'Minus:     ' + minus;
+				sto.text[7]  = 'Plus:      ' + plus;
+				sto.text[8]  = 'One:       ' + one;
+				sto.text[9]  = 'Two:       ' + two;
+				sto.text[10] = 'Home:      ' + home;	
+			}
+				
+			function A(val)
+			{a = val;
+				if(val == true){
+					LuzBotonA = new SFColor(0,1,0);
+				  }
+				  else{
+					LuzBotonA = new SFColor(1,1,1);
+				  }
+			}
+			
+			function B(val)
+			{b = val;
+					if(val == true){
+					LuzBotonB = new SFColor(0,1,0);
+				  }
+				  else{
+					LuzBotonB = new SFColor(1,1,1);
+				  }
+			}
+			
+			function Up(val)
+			{up = val;
+				if(val == true){
+					LuzBotonUp = new SFColor(0,1,0);
+				  }
+				  else{
+					LuzBotonUp = new SFColor(1,1,1);
+				  }	
+			}
+			
+			function Down(val)
+			{down = val;
+					if(val == true){
+					LuzBotonDown = new SFColor(0,1,0);
+				  }
+				  else{
+					LuzBotonDown = new SFColor(1,1,1);
+				  }	
+			}
+			
+			function Left(val)
+			{left = val;
+					if(val == true){
+					LuzBotonLeft = new SFColor(0,1,0);
+				  }
+				  else{
+					LuzBotonLeft = new SFColor(1,1,1);
+				  }	
+			}
+			
+			function Right(val)
+			{right = val;
+					if(val == true){
+					LuzBotonRight = new SFColor(0,1,0);
+				  }
+				  else{
+					LuzBotonRight = new SFColor(1,1,1);
+				  }	
+			}
+			
+			function Minus(val)
+			{minus = val;
+				if(val == true){
+					LuzBotonMinus = new SFColor(0,1,0);
+				  }
+				  else{
+					LuzBotonMinus = new SFColor(1,1,1);
+				  }			
+			}
+			
+			function Plus(val)
+			{plus = val;
+				if(val == true){
+					LuzBotonPlus = new SFColor(0,1,0);
+				  }
+				  else{
+					LuzBotonPlus = new SFColor(1,1,1);
+				  }	
+			}
+			
+			function One(val)
+			{one = val;
+				if(val == true){
+					LuzBoton1 = new SFColor(0,1,0);
+				  }
+				  else{
+					LuzBoton1 = new SFColor(1,1,1);
+				  }	
+			}
+			
+			function Two(val)
+			{two = val;
+				if(val == true){
+					LuzBoton2 = new SFColor(0,1,0);
+				  }
+				  else{
+					LuzBoton2 = new SFColor(1,1,1);
+				  }	
+			}
+			
+			function Home(val)
+			{home = val;
+				if(val == true){
+					LuzBotonHome = new SFColor(0,1,0);
+				  }
+				  else{
+					LuzBotonHome = new SFColor(1,1,1);
+				  }	
+			}
+		]]>
+	</Script>
+	
+	<TimeSensor DEF='ts' loop='true' cycleInterval='0.03' />
+	<ROUTE fromNode='ts' fromField='cycleTime' toNode='script' toField='update'/>
+	
+	<ROUTE fromNode='Wiimote' fromField='A' toNode='Wiimote' toField='ActivateRumble'/>
+	
+	<ROUTE fromNode='Wiimote' fromField='A' toNode='script' toField='A'/>
+	<ROUTE fromNode='script' fromField='LuzBotonA' toNode='ColorBotonA' toField='diffuseColor'/>
+	<ROUTE fromNode='Wiimote' fromField='B' toNode='script' toField='B'/>
+	<ROUTE fromNode='script' fromField='LuzBotonB' toNode='ColorBotonB' toField='diffuseColor'/>
+	<ROUTE fromNode='Wiimote' fromField='Up' toNode='script' toField='Up'/>
+	<ROUTE fromNode='script' fromField='LuzBotonUp' toNode='ColorBotonUp' toField='diffuseColor'/>
+	<ROUTE fromNode='Wiimote' fromField='Down' toNode='script' toField='Down'/>
+	<ROUTE fromNode='script' fromField='LuzBotonDown' toNode='ColorBotonDown' toField='diffuseColor'/>
+	<ROUTE fromNode='Wiimote' fromField='Left' toNode='script' toField='Left'/>
+	<ROUTE fromNode='script' fromField='LuzBotonLeft' toNode='ColorBotonLeft' toField='diffuseColor'/>
+	<ROUTE fromNode='Wiimote' fromField='Right' toNode='script' toField='Right'/>
+	<ROUTE fromNode='script' fromField='LuzBotonRight' toNode='ColorBotonRight' toField='diffuseColor'/>
+	<ROUTE fromNode='Wiimote' fromField='Minus' toNode='script' toField='Minus'/>
+	<ROUTE fromNode='script' fromField='LuzBotonMinus' toNode='ColorBotonMinus' toField='diffuseColor'/>
+	<ROUTE fromNode='Wiimote' fromField='Plus' toNode='script' toField='Plus'/>
+	<ROUTE fromNode='script' fromField='LuzBotonPlus' toNode='ColorBotonPlus' toField='diffuseColor'/>
+	<ROUTE fromNode='Wiimote' fromField='One' toNode='script' toField='One'/>
+	<ROUTE fromNode='script' fromField='LuzBoton1' toNode='ColorBoton1' toField='diffuseColor'/>
+	<ROUTE fromNode='Wiimote' fromField='Two' toNode='script' toField='Two'/>
+	<ROUTE fromNode='script' fromField='LuzBoton2' toNode='ColorBoton2' toField='diffuseColor'/>
+	<ROUTE fromNode='Wiimote' fromField='Home' toNode='script' toField='Home'/>	
+	<ROUTE fromNode='script' fromField='LuzBotonHome' toNode='ColorBotonHome' toField='diffuseColor'/>
+	</Scene>
+</X3D>
